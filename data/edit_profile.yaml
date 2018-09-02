@@ -1,0 +1,10 @@
+
+test_edit_profile:
+  edit_profile_001:
+    name: "OutMan3"
+    toast: "名字不能30天修改两次"
+
+
+
+
+

@@ -1,0 +1,16 @@
+
+test_write_note:
+  note_001:
+    title: "20180828"
+    content: "怎么还是不行啊!"
+    toast: "日记发布成功"
+
+test_comment_note:
+  comment_note_001:
+    title: "9999"
+    content: "你的文采好飞扬！"
+    toast: "回复发送成功"
+
+
+
+

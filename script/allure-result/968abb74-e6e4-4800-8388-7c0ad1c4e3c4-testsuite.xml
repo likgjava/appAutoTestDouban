@@ -1,0 +1,28 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1535425643540" stop="1535425643540">
+  <description>This is the tests collection phase. Failures are modules that failed to collect.</description>
+  <name>test_collection_phase</name>
+  <title>Collection phase</title>
+  <labels/>
+  <test-cases>
+    <test-case start="1535425643540" status="broken" stop="1535425643540">
+      <name>test_note</name>
+      <failure>
+        <message>failed</message>
+        <stack-trace>test_note.py:50: in &lt;module&gt;
+    class TestNote:
+test_note.py:90: in TestNote
+    @pytest.mark.parametrize("title,content,toast", build_write_note_data())
+test_note.py:32: in build_write_note_data
+    data = YamlUtil.get_data_by_key("note", "test_write_note")
+..\utils.py:41: in get_data_by_key
+    data = YamlUtil.get_all_data(file_name)
+..\utils.py:35: in get_all_data
+    with open(file_path, encoding="utf-8") as f:
+E   FileNotFoundError: [Errno 2] No such file or directory: './data/note.yaml'</stack-trace>
+      </failure>
+      <attachments/>
+      <labels/>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
