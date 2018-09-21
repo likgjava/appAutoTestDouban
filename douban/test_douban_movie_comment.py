@@ -3,6 +3,7 @@ import traceback
 
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.support.wait import WebDriverWait
 
 XPATH = "//*[@resource-id='com.douban.frodo:id/overlay_tab_layout']//*[@text='影评']"
 
@@ -17,7 +18,7 @@ cap = {
     'resetKeyboard': True,
 }
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', cap)
-driver.implicitly_wait(20)
+driver.implicitly_wait(10)
 
 
 """
@@ -28,12 +29,13 @@ print("start.....")
 try:
     driver.find_element_by_xpath("//*[@text='书影音']").click()
     driver.find_element_by_id("com.douban.frodo:id/search_hint").click()
-    driver.find_element_by_id("com.douban.frodo:id/search").send_keys("疯狂的石头")
-    driver.find_element_by_xpath("//*[@resource-id='com.douban.frodo:id/recycler_view']//*[contains(@text, '疯狂的石头')]").click()
+    video_name = "寄宿学校"
+    driver.find_element_by_id("com.douban.frodo:id/search").send_keys(video_name)
+    driver.find_element_by_xpath("//*[@resource-id='com.douban.frodo:id/recycler_view']//*[contains(@text, '{}')]".format(video_name)).click()
     driver.find_element_by_xpath("%s" % XPATH).click()
 
     driver.find_element_by_id("com.douban.frodo:id/btn_post").click()
-    driver.find_element_by_id("com.douban.frodo:id/mode2_review_text").click()
+    driver.find_element_by_id("com.douban.frodo:id/mode2_review").click()
 
     e = driver.find_element_by_id("com.douban.frodo:id/rating_bar")
     TouchAction(driver).tap(e, e.size["width"]/2, e.size["height"]/2).perform()
@@ -56,8 +58,10 @@ try:
     driver.find_element_by_id("com.douban.frodo:id/menu_item").click()
     driver.find_element_by_xpath("//*[@text='发布']").click()
 
-    ele = driver.find_element_by_xpath("//*[contains(@text, '发布成功')]")
-    print(ele.text)
+    xpath = "//*[contains(@text, '{}')]".format("发布成功")
+    print("find toast xpath={}".format(xpath))
+    ele = WebDriverWait(driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
+    print("toast===", ele.text)
 
 
 except Exception:
