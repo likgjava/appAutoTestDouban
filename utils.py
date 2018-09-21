@@ -23,6 +23,23 @@ def is_exist_toast(text):
         return False
 
 
+def is_exist_web_toast(text):
+    """
+    判断web页面中toast元素是否存在
+    :param text: toast内容
+    :return: 存在返回True，不存在返回False
+    """
+    try:
+        xpath = "//*[contains(text(), '{}')]".format(text)
+        print("find web toast xpath={}".format(xpath))
+        ele = WebDriverWait(DriverUtil.get_driver(), 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
+        print("web toast text=", ele.text)
+        return ele is not None
+    except TimeoutException:
+        print("not find web toast={}".format(text))
+        return False
+
+
 class YamlUtil:
     """
     yaml工具类
@@ -66,7 +83,7 @@ class DriverUtil:
 
             }
             DriverUtil._driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", cap)
-            DriverUtil._driver.implicitly_wait(10)
+            DriverUtil._driver.implicitly_wait(30)
         return DriverUtil._driver
 
     @staticmethod
@@ -77,9 +94,9 @@ class DriverUtil:
     @classmethod
     def switch_to_webview(cls):
         driver = cls.get_driver()
-        print("page_source=", driver.page_source)
+        # print("page_source=", driver.page_source)
         print("contexts=", driver.contexts)
-        driver.switch_to.context(driver.contexts[1])
+        driver.switch_to.context(driver.contexts[-1])
 
     @classmethod
     def switch_to_last_window(cls):

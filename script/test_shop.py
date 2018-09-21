@@ -54,4 +54,4 @@ class TestEditProfile:
         #
         self.shop_proxy.add_goods_to_cart(goods_name)
 
-        assert utils.is_exist_toast(toast)
+        assert utils.is_exist_web_toast(toast)

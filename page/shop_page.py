@@ -61,14 +61,16 @@ class ShopProxy:
     def add_goods_to_cart(self, goods_name):
         """
         """
-        time.sleep(3)
         DriverUtil.switch_to_webview()
+        time.sleep(3)
 
         DriverUtil.switch_to_last_window()
         self.home_handle.click_goods(goods_name)
+        time.sleep(3)
 
         DriverUtil.switch_to_last_window()
         self.home_handle.click_buy_btn()
+        time.sleep(3)
 
         DriverUtil.switch_to_last_window()
         self.home_handle.click_add_cart_btn()

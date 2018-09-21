@@ -2,6 +2,7 @@ import time
 
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.support.wait import WebDriverWait
 
 cap = {
     'platformName': 'Android',
@@ -68,12 +69,12 @@ try:
     print("title=========", driver.title)
     print("current_url=", driver.current_url)
     driver.find_element_by_link_text("加入购物车").click()
-    print("page_source=", driver.page_source)
+    # print("page_source=", driver.page_source)
 
-    fs = driver.find_elements_by_tag_name("iframe")
-    print("fs.lenth===", len(fs))
-    for f in fs:
-        print("f.text===", f.text)
+    # fs = driver.find_elements_by_tag_name("iframe")
+    # print("fs.lenth===", len(fs))
+    # for f in fs:
+    #     print("f.text===", f.text)
 
     # for i in range(1000):
         # if "成功加入" in driver.page_source or "iframe" in driver.page_source:
@@ -81,8 +82,9 @@ try:
         # else:
         #     print("i===", i)
 
-
-
+    xpath = "//*[contains(text(), '成功加入购物车')]"
+    ele = WebDriverWait(driver, 20, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
+    print("toast text=", ele.text)
 
     # ele = driver.find_element_by_xpath("//*[contains(text(), '成功加入购物车')]")
     # ele_list = driver.find_elements_by_xpath("//*")
