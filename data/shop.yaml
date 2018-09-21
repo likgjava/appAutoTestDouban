@@ -1,0 +1,9 @@
+
+test_add_goods_to_cart:
+  add_goods_to_cart_001:
+    goods_name: "豆瓣读书笔记"
+    toast: "成功加入购物车"
+
+
+
+

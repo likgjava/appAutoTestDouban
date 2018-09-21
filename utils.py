@@ -62,6 +62,8 @@ class DriverUtil:
                 "noReset": True,
                 "unicodeKeyboard": True,
                 "resetKeyboard": True,
+                "chromedriverExecutable": r"C:\Program Files (x86)\Appium\\resources\app\node_modules\appium-chromedriver\chromedriver\win\\chromedriver.exe",
+
             }
             DriverUtil._driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", cap)
             DriverUtil._driver.implicitly_wait(10)
@@ -71,3 +73,14 @@ class DriverUtil:
     def quit_driver():
         print("quit_driver")
         DriverUtil._driver.quit()
+
+    @classmethod
+    def switch_to_webview(cls):
+        driver = cls.get_driver()
+        print("page_source=", driver.page_source)
+        print("contexts=", driver.contexts)
+        driver.switch_to.context(driver.contexts[1])
+
+    @classmethod
+    def switch_to_last_window(cls):
+        cls.get_driver().switch_to.window(cls.get_driver().window_handles[-1])
