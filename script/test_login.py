@@ -1,3 +1,5 @@
+import logging
+
 import allure
 import pytest
 import utils
@@ -46,6 +48,7 @@ class TestLogin:
     @classmethod
     def setup_class(cls):
         print('setup_class')
+        logging.info("TestLogin setup_class")
         # cls.main_proxy = MainProxy()
         # cls.mine_proxy = MineProxy()
         cls.login_proxy = LoginProxy()

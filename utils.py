@@ -5,6 +5,11 @@ from appium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 
+import log_conf
+
+# 加载日志配置
+log_conf.init()
+
 
 def is_exist_toast(text):
     """

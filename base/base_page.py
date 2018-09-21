@@ -1,3 +1,5 @@
+import logging
+
 from utils import DriverUtil
 
 
@@ -11,6 +13,7 @@ class BasePage(object):
 
     def find_element(self, location):
         print("location=", location)
+        logging.info("location={}".format(location))
         return self.driver.find_element(location[0], location[1])
 
     def find_element_by_up_swipe_page(self, location):
