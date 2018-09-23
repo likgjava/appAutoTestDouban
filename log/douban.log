@@ -1,0 +1,7 @@
+2018-09-21 18:12:49,563 INFO [root] [log_conf.py(init:27)] - hello
+2018-09-21 18:12:49,563 ERROR [root] [log_conf.py(init:28)] - error
+2018-09-21 18:12:49,630 INFO [root] [test_login.py(setup_class:51)] - TestLogin setup_class
+2018-09-21 18:14:39,376 INFO [root] [log_conf.py(init:27)] - hello
+2018-09-21 18:14:39,376 ERROR [root] [log_conf.py(init:28)] - error
+2018-09-21 18:14:39,557 INFO [root] [test_login.py(setup_class:51)] - TestLogin setup_class
+2018-09-21 18:14:55,658 INFO [root] [base_page.py(find_element:16)] - location=('id', 'com.douban.frodo:id/left')

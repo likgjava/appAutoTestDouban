@@ -18,11 +18,11 @@ driver.find_element_by_id("com.douban.frodo:id/left").click()
 
 
 # driver.find_element_by_xpath("//android.widget.EditText[1]").clear()
-driver.find_element_by_id("com.douban.frodo:id/input_user_name").send_keys("13041092162")
+driver.find_element_by_id("com.douban.frodo:id/input_user_name").send_keys("13012345678")
 # time.sleep(1)
-driver.find_element_by_id("com.douban.frodo:id/input_password").send_keys("likg2018good")
+driver.find_element_by_id("com.douban.frodo:id/input_password").send_keys("123")
 # driver.find_elements_by_xpath("//android.widget.EditText")[1].clear()
-# driver.find_elements_by_xpath("//android.widget.EditText")[1].send_keys("likg2018good")
+# driver.find_elements_by_xpath("//android.widget.EditText")[1].send_keys("123")
 #
 driver.find_element_by_id("com.douban.frodo:id/sign_in_douban").click()
 

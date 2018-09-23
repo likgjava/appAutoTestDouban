@@ -1,12 +1,12 @@
 
 test_login:
   login_002:
-    username: "13041092162"
+    username: "13012345678"
     password: "error"
     toast: "用户名和密码不匹配"
   login_001:
-    username: "13041092162"
-    password: "likg2018good"
+    username: "13012345678"
+    password: "123456"
     toast: "登录成功"
 
 
